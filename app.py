@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import matplot
 
 from flask import Flask, make_response, render_template, request
