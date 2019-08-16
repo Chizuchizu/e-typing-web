@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="212e445c-a3fc-4423-ba9a-34f5ed0e168b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hensachi.py" beforeDir="false" afterPath="$PROJECT_DIR$/hensachi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main2_js.py" beforeDir="false" afterPath="$PROJECT_DIR$/main2_js.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_run.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pasento.py" beforeDir="false" afterPath="$PROJECT_DIR$/pasento.py" afterDir="false" />
+    <list default="true" id="212e445c-a3fc-4423-ba9a-34f5ed0e168b" name="Default Changelist" comment="first commit">
+      <change beforePath="$PROJECT_DIR$/scripting" beforeDir="false" afterPath="$PROJECT_DIR$/scripting" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -183,7 +178,7 @@
       <option name="presentableId" value="Default" />
       <updated>1565909675538</updated>
       <workItem from="1565909682530" duration="3538000" />
-      <workItem from="1565952049167" duration="7622000" />
+      <workItem from="1565952049167" duration="7949000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1565954655422</created>
