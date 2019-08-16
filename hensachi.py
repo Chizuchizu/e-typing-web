@@ -5,7 +5,7 @@ def keisan(number, data):
     data = int(data)
     score = np.load("data/score_" + number + ".npy").astype(int)
 
-    res = np.round(50 + 10 * ((data - np.average(score)) / np.std(score)))
+    res = np.round(50 + 10 * ((data - np.average(score)) / np.std(score)), 3)
     return res
     #
     # meyasu = np.zeros((100, 2))

@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 import matplot
 import hensachi
+import pasento
 
 import os
+import numpy as np
 from flask import Flask, make_response, render_template, request, redirect, url_for
 
 app = Flask(__name__)
@@ -55,9 +57,9 @@ def user():
 @app.route("/user_shosai/<string:number>")
 def user_something(number):
     hensa = hensachi.keisan("912", number)
-    pasento = "n"
+    pas = pasento.keisan("912", number)
 
-    return render_template("user_data.html", score=number, hensa=hensa, pasento=pasento)
+    return render_template("user_data.html", score=number, hensa=hensa, pasento=pas)
 
 
 if __name__ == '__main__':

@@ -25,12 +25,3 @@ if __name__ == "__main__":
     if not os.path.isfile("data/score_" + number + ".npy"):
         print("データファイルが存在しないのでスクレイピングします")
         main2_js.scripting(number)
-
-    # 可視化
-    matplot.byoga(number)
-
-    # 偏差値の可視化
-    hensachi.keisan(number)
-
-    # 上位n%
-    pasento.keisan(number)

@@ -34,6 +34,7 @@ def scripting(number):
             html = driver.page_source.encode("utf-8")
             soup = BeautifulSoup(html, "html.parser")
 
+            # 受け取る
             memo2 = soup.find_all("div", attrs={"class": "user"})
             memo3 = soup.find_all("div", attrs={"class": "score"})
 
@@ -43,8 +44,21 @@ def scripting(number):
             del memo2[0], memo3[0]
             memo2 = [x.split(">")[1].split("<")[0] for x in memo2]
             memo3 = [x.split(">")[1].split("<")[0] for x in memo3]
+
+            # 空の要素があったらindexを入れる
+            memo = np.where(np.array(memo2) == '')
+
+            # 空の要素があるか判定
+            if memo[0].size != 0:
+                # 補完
+                for x in memo[0]:
+                    del memo2[x]
+                    memo2[x - 1] = memo2[x - 1] + str(",") + memo2[x]
+                    del memo2[x]
+                    print(memo2)
+
+            # 特に最後、30に満たない場合にエラーを起こさないようにする
             if len(memo2) != 30:
-                print(len(memo2))
                 user[i, :len(memo2)] = memo2
                 score[i, :len(memo3)] = memo3
             else:
@@ -68,6 +82,6 @@ def scripting(number):
     score = score.flatten()
     user = user.flatten()
     score = score[np.where(score != "0.0")].astype(str)
-    user = user[np.where(user != "0.0")].astype(int)
+    user = user[np.where(user != "0.0")].astype(str)
     np.save("data/user_" + str(number), user)
     np.save("data/score_" + str(number), score)
