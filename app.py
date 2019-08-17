@@ -4,7 +4,6 @@ import hensachi
 import pasento
 
 import os
-import numpy as np
 from flask import Flask, make_response, render_template, request, redirect, url_for
 
 app = Flask(__name__)
@@ -21,7 +20,10 @@ def index():
     if request.method == "GET":
         return render_template("index.html")
     else:
-        if not os.path.isfile("data/score_" + str(request.form["num"]) + ".npy"):
+        if request.form["name"]:
+            return redirect(url_for("user_graph", name=request.form["name"]))
+
+        elif not os.path.isfile("data/score_" + str(request.form["num"]) + ".npy"):
             print("error")
             return redirect(url_for("none"))
         else:
@@ -48,18 +50,28 @@ def error():
 def user():
     # print(request.method)
     if request.method == "GET":
-        print("GET")
+        # print("GET")
         return render_template("user.html")
     else:
         return redirect(url_for("user_something", number=request.form["num"]))
 
 
-@app.route("/user_shosai/<string:number>")
+@app.route("/user_shosai/<string:number>", methods=["GET", "POST"])
 def user_something(number):
-    hensa = hensachi.keisan("912", number)
-    pas = pasento.keisan("912", number)
-
+    hensa = hensachi.keisan("955", number)
+    pas = pasento.keisan("955", number)
     return render_template("user_data.html", score=number, hensa=hensa, pasento=pas)
+
+
+@app.route("/user_graph/<string:name>")
+def user_graph(name):
+    import user_graph
+    print(user_graph)
+    data = user_graph.main2(str(name))
+    response = make_response(data)
+    response.headers["Content-Type"] = "image/png"
+    response.headers["Content-Length"] = len(data)
+    return response
 
 
 if __name__ == '__main__':
