@@ -37,12 +37,17 @@ def scripting(number):
             # 受け取る
             memo2 = soup.find_all("div", attrs={"class": "user"})
             memo3 = soup.find_all("div", attrs={"class": "score"})
+            # print(memo2)
+            # memo2 = str(memo2).replace(",", ".")
 
-            memo2 = str(memo2).split(",")
+            memo2 = str(memo2).split('<div class="user">')
+            memo2 = [x.split("</div>")[:-1] for x in memo2]
+            # print(memo2)
             memo3 = str(memo3).split(",")
 
             del memo2[0], memo3[0]
-            memo2 = [x.split(">")[1].split("<")[0] for x in memo2]
+            del memo2[0]
+            memo2 = [x[0] for x in memo2]
             memo3 = [x.split(">")[1].split("<")[0] for x in memo3]
 
             # 空の要素があったらindexを入れる
